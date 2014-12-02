@@ -4,9 +4,8 @@
   "description": "To-do webapp",
   "private": true,
   "author": "Guilherme Rv Coelho",
-  "homepage": "https://github.com/guilhermervcoelho/toodoo",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon back/bin/www"
   },
   "dependencies": {
     "body-parser": "^1.9.3",
