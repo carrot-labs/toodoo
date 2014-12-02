@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 /**
  * Create the Schema object
  */
-var Schema = mongoose.Schema();
+var Schema = mongoose.Schema;
 
 
 /**

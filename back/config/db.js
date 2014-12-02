@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
  * Build the connection string
  */
 var dbURI = 'mongodb://localhost/toodoo';
+var dbURI = 'mongodb://gui:123456@ds051960.mongolab.com:51960/toodoo';
 
 
 /**
@@ -52,3 +53,6 @@ process.on('SIGINT', function() {
 /**
  * Require the data models
  */
+
+require('../modules/todos/model');
+require('../modules/users/model');
