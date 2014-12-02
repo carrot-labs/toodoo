@@ -17,7 +17,9 @@ var TodoSchema = new Schema({
 	id: { type: Number, min: 0 },
 	description: { type: String, default: '' },
 	done: { type: Boolean, default: false },
-	_userId: { type: Number, ref: 'User' }
+	_userId: { type: Number, ref: 'User' },
+	createdAt: { type: Date, default: Date.now },
+	updatedAt: { type: Date, default: Date.now }
 });
 
 

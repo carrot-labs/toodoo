@@ -19,6 +19,8 @@ var UserSchema = new Schema({
 	username: { type: String, default: '' },
 	email: { type: String, default: '' },
 	password: { type: String, default: '' },
+	createdAt: { type: Date, default: Date.now },
+	updatedAt: { type: Date, default: Date.now }
 });
 
 
