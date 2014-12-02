@@ -1,10 +1,11 @@
-/*
+/**
  * Require the needed modules
  */
 var express        = require('express');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var errorHandler   = require('errorhandler');
+var lodash         = require('lodash');
 var morgan         = require('morgan');
 var http           = require('http');
 var path           = require('path');
@@ -12,6 +13,11 @@ var path           = require('path');
 // Instantiate the express app
 var app = module.exports = express();
 
+
+/**
+ * Require the homemade needed modules
+ */
+var db = require('./config/db');
 
 /**
  * Configure defaults
