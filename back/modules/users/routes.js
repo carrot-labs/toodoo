@@ -74,5 +74,6 @@ router.delete('/_id/:id', function(req, res) {
 
 
 /**
- * Export the router;
+ * Export the router
  */
+module.exports = router;
