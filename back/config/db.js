@@ -38,7 +38,7 @@ mongoose.connection.on('disconnected', function () {
 
 // When the connection is open
 mongoose.connection.once('open', function () {
-  console.log('Mongoose default connection is open')
+  console.log('Mongoose default connection is open');
 });
 
 // If the Node process ends, close the Mongoose connection
