@@ -36,7 +36,7 @@ gulp.task('lint', function() {
 /**
  * Watch task
  */
-gulp.task('watch', function() {
+gulp.task('watch', ['lint'], function() {
 	gulp.watch(jsFiles, ['lint']);
 });
 
