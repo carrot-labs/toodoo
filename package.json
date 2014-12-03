@@ -5,6 +5,7 @@
   "private": true,
   "author": "Guilherme Rv Coelho",
   "scripts": {
+    "prestart": "gulp",
     "start": "nodemon back/bin/www"
   },
   "dependencies": {
