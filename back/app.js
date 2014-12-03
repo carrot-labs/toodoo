@@ -58,7 +58,6 @@ var todosAPI = require('./modules/todos/routes');
 app.use('/api', usersAPI);
 app.use('/todos', todosAPI);
 
-
 app.get('/', function(req, res) {
 	res.render(publicFolder + '/index.html');
 });
