@@ -48,11 +48,3 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-
-
-/**
- * Require the data models
- */
-
-require('../modules/todos/model');
-require('../modules/users/model');

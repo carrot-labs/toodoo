@@ -15,7 +15,7 @@ var app = module.exports = express();
 
 
 /**
- * Require the homemade needed modules
+ * Require the database config and connection
  */
 var db = require('./config/db');
 
