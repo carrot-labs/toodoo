@@ -20,7 +20,7 @@ var watch  = require('gulp-watch');
 /**
  * Javascript files
  */
-var jsFiles = ['back/**/*.js'];
+var jsFiles = ['front/**/*.js'];
 
 
 /**
