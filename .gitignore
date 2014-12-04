@@ -26,3 +26,6 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# IMPORTANT: Exclude public folder from git watcher
+public
