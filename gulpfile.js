@@ -23,8 +23,8 @@ var watch  = require('gulp-watch');
 var jsFiles = ['front/app/**/*.js']
 var jsDest  = 'public/assets/javascripts/';
 
-var jadeFiles = ['front/views/**/*.jade'];
-var jadeDest  = 'public/views/';
+var jadeFiles = ['front/**/*.jade'];
+var jadeDest  = 'public/';
 
 /**
  * Scripts task
