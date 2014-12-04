@@ -62,4 +62,4 @@ gulp.task('watch', ['views', 'scripts'], function() {
 /**
  * Default task
  */
-gulp.task('default', ['watch']);
+gulp.task('default', ['views', 'scripts']);
