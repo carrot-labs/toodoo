@@ -23,17 +23,30 @@ var watch  = require('gulp-watch');
 var jsFiles = ['front/app/**/*.js']
 var jsDest  = 'public/assets/javascripts/';
 
+var jadeFiles = ['front/views/**/*.jade'];
+var jadeDest  = 'public/views/';
 
 /**
  * Scripts task
  */
 gulp.task('scripts', function() {
 	return gulp.src(jsFiles)	
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'))
-		.pipe(concat('app.js'))
-		// .pipe(uglify())
+			.pipe(jshint())
+			.pipe(jshint.reporter('default'))
+			.pipe(concat('app.js'))
+			// .pipe(uglify())
 		.pipe(gulp.dest(jsDest))
+});
+
+
+/**
+ * Views task
+ */
+
+gulp.task('views', function() {
+	return gulp.src(jadeFiles)
+			.pipe(jade())
+		.pipe(gulp.dest(jadeDest))
 });
 
 
@@ -42,6 +55,7 @@ gulp.task('scripts', function() {
  */
 gulp.task('watch', ['scripts'], function() {
 	gulp.watch(jsFiles, ['scripts']);
+	gulp.watch(jadeFiles, ['views']);
 });
 
 
