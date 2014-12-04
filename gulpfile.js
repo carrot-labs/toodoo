@@ -18,30 +18,34 @@ var watch  = require('gulp-watch');
 
 
 /**
- * Javascript files
+ * Default Variables
  */
-var jsFiles = ['front/**/*.js'];
+var jsFiles = ['front/app/**/*.js']
+var jsDest  = 'public/assets/javascripts/';
 
 
 /**
- * Lint task
+ * Scripts task
  */
-gulp.task('lint', function() {
-	return gulp.src(jsFiles)
+gulp.task('scripts', function() {
+	return gulp.src(jsFiles)	
 		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
+		.pipe(jshint.reporter('default'))
+		.pipe(concat('app.js'))
+		// .pipe(uglify())
+		.pipe(gulp.dest(jsDest))
 });
 
 
 /**
  * Watch task
  */
-gulp.task('watch', ['lint'], function() {
-	gulp.watch(jsFiles, ['lint']);
+gulp.task('watch', ['scripts'], function() {
+	gulp.watch(jsFiles, ['scripts']);
 });
 
 
 /**
  * Default task
  */
-gulp.task('default', ['lint']);
+gulp.task('default', ['watch']);
