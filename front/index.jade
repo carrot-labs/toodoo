@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en", ng-app="toodoo")
 head
 	meta(charset="UTF-8")
 	title Document
@@ -7,12 +7,12 @@ head
 
 body
 	div.container
-		button.btn.btn-primary primary
-		button.btn.btn-primary primary
-		button.btn.btn-primary primary
-		button.btn.btn-primary primary
-		button.btn.btn-primary primary
-		button.btn.btn-primary primary
-
+		{{"test"}}
+	
+	//- Angular dependencies
 	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")
+	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular-route.js")
+	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular-resource.js")
+
+	//- Javascripts
 	script(src="assets/javascripts/app.js")
