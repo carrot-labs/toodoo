@@ -1,1 +1,35 @@
-h1 I show only one!!! {{id}}
+div.col-md-8.col-md-offset-2
+
+	div(ng-if="!todo")
+		h1 Todo not found
+		a.btn.btn-info(href="todos") Go back
+
+	div(ng-if="todo")
+		h1.page-header Todo: {{todo._id}}
+
+		div(ng-if="loading")
+			h3.text-info Loading, please wait...
+
+		table.table.table-bordered.table-striped(ng-if="!loading && todo")
+			thead
+				th Description
+				th Created At
+				th Done?
+				th Delete
+			tbody
+				tr
+					td 
+						a(href="todos/{{todo._id}}", ng-class="{'text-muted': todo.done}")
+							|{{todo.description}}
+
+					td(ng-class="{'text-muted': todo.done}")
+						|{{todo.createdAt}}
+
+					td 
+						input(
+							type="checkbox",
+							ng-checked="todo.done",
+							ng-click="markDone(todo)")
+					
+					td
+						button.btn.btn-xs.btn-danger(ng-click="deleteTodo(todo)") Delete
