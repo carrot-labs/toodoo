@@ -33,8 +33,8 @@ var jadeDest  = 'public/';
 gulp.task('scripts', function() {
 	return gulp.src(jsFiles)	
 		.pipe(plumber())
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'))
+		//.pipe(jshint())
+		//.pipe(jshint.reporter('default'))
 		.pipe(concat('app.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(jsDest));
