@@ -14,16 +14,20 @@
 	function config($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$routeProvider
-			.when('/', {
+			.when('/todos', {
 				templateUrl: 'views/todos/index.html'
 			})
 
-			.when('/edit', {
+			.when('/todos/:id', {
+				templateUrl: 'views/todos/show.html'
+			})
+
+			.when('/todos/edit', {
 				templateUrl: 'views/todos/edit.html'
 			})
 
 			.otherwise({
-				redirectTo: '/banana'
+				redirectTo: '/todos'
 			});
 
 	}

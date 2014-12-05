@@ -56,15 +56,11 @@ var usersAPI = require('./modules/users/routes');
 var todosAPI = require('./modules/todos/routes');
 
 app.use('/api', usersAPI);
-app.use('/todos', todosAPI);
+app.use('/api', todosAPI);
 
 app.get('/', function(req, res) {
 	res.render(publicFolder + '/index.html');
 });
-
-// app.get('*', function(req, res) {
-// 	res.redirect('/');
-// });
 
 app.all('/*', function(req, res) {
   res.sendfile(publicFolder + '/index.html');
