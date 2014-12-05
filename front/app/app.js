@@ -10,7 +10,8 @@
 			'ngRoute',
 			'ngResource',
 
-			'toodoo.modules.Todo.services'
+			'toodoo.modules.Todo.services',
+			'toodoo.modules.Todo.controllers',
 		])
 		.config(config);
 

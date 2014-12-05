@@ -55,16 +55,14 @@ if(env === 'development') {
 var usersAPI = require('./modules/users/routes');
 var todosAPI = require('./modules/todos/routes');
 
-app.use('/api', usersAPI);
-app.use('/api', todosAPI);
+app.use('/api/users', usersAPI);
+app.use('/api/todos', todosAPI);
 
-app.get('/', function(req, res) {
-	res.render(publicFolder + '/index.html');
+
+app.all('*', function(req, res) {
+  res.sendFile(publicFolder + '/index.html');
 });
 
-app.all('/*', function(req, res) {
-  res.sendfile(publicFolder + '/index.html');
-});
 
 /**
  * Export the app

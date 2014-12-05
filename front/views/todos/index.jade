@@ -1,1 +1,17 @@
-h1 I'm the TODOS index!
+div.col-md-8.col-md-offset-2
+	h1.page-header List of all todos
+
+	div(ng-if="loading")
+		h4 Loading, please wait...
+
+	table.table.table-bordered.table-striped(ng-if="!loading")
+		thead
+			th Description
+			th Created At
+			th Done?
+		tbody
+			tr(ng-repeat="todo in todos")
+				td {{todo.description}}
+				td {{todo.createdAt}}
+				td 
+					input(type="checkbox" ng-checked="todo.done")
