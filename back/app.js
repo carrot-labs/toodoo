@@ -62,8 +62,12 @@ app.get('/', function(req, res) {
 	res.render(publicFolder + '/index.html');
 });
 
-app.get('*', function(req, res) {
-	res.redirect('/');
+// app.get('*', function(req, res) {
+// 	res.redirect('/');
+// });
+
+app.all('/*', function(req, res) {
+  res.sendfile(publicFolder + '/index.html');
 });
 
 /**

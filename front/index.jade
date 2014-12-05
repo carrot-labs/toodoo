@@ -2,12 +2,12 @@
 html(lang="en", ng-app="toodoo")
 head
 	meta(charset="UTF-8")
-	title Document
+	title Toodoo | To-do list webapp
 	link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
 
 body
 	div.container
-		{{"test"}}
+		div(ng-view)
 	
 	//- Angular dependencies
 	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")

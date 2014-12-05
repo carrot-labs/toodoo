@@ -12,12 +12,20 @@
 	config.$inject = ['$routeProvider', '$locationProvider'];
 
 	function config($routeProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
 		$routeProvider
 			.when('/', {
-				templateURL: ''
+				templateUrl: 'views/todos/index.html'
+			})
+
+			.when('/edit', {
+				templateUrl: 'views/todos/edit.html'
+			})
+
+			.otherwise({
+				redirectTo: '/banana'
 			});
 
-		$locationProvider.html5Mode(true);
 	}
 
 })(angular);
