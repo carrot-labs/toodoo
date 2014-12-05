@@ -2,6 +2,9 @@
 
 	'use strict';
 
+	/**
+	 * Create the main angular module
+	 */
 	angular
 		.module('toodoo', [
 			'ngRoute',
@@ -9,10 +12,20 @@
 		])
 		.config(config);
 
+
+	/**
+	 * Dependency injection on the config function
+	 */
 	config.$inject = ['$routeProvider', '$locationProvider'];
 
+
+	/**
+	 * The main angular module configuration
+	 */
 	function config($routeProvider, $locationProvider) {
-		$locationProvider.html5Mode(true);
+		/**
+		 * Create the routes
+		 */
 		$routeProvider
 			.when('/todos', {
 				templateUrl: 'views/todos/index.html'
@@ -22,7 +35,7 @@
 				templateUrl: 'views/todos/show.html'
 			})
 
-			.when('/todos/edit', {
+			.when('/todos/:id/edit', {
 				templateUrl: 'views/todos/edit.html'
 			})
 
@@ -30,6 +43,11 @@
 				redirectTo: '/todos'
 			});
 
+
+		/**
+		 * Make the URL routing looks like HTML5 routing
+		 */
+		$locationProvider.html5Mode(true);
 	}
 
 })(angular);
