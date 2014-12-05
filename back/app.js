@@ -62,6 +62,9 @@ app.get('/', function(req, res) {
 	res.render(publicFolder + '/index.html');
 });
 
+app.get('*', function(req, res) {
+	res.redirect('/');
+});
 
 /**
  * Export the app
