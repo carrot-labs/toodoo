@@ -37,7 +37,7 @@
 
 
 		/**
-		 * Create the action functions for the service
+		 * Create the actions functions for the service
 		 */
 		function find() {
 			return $http.get(urlBase);

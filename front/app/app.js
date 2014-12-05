@@ -30,15 +30,18 @@
 		 */
 		$routeProvider
 			.when('/todos', {
-				templateUrl: 'views/todos/index.html'
+				templateUrl: 'views/todos/index.html',
+				controller: 'TodoListController'
 			})
 
 			.when('/todos/:id', {
-				templateUrl: 'views/todos/show.html'
+				templateUrl: 'views/todos/show.html',
+				controller: 'TodoShowController'
 			})
 
 			.when('/todos/:id/edit', {
-				templateUrl: 'views/todos/edit.html'
+				templateUrl: 'views/todos/edit.html',
+				controller: 'TodoEditController'
 			})
 
 			.otherwise({
