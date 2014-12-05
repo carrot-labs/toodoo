@@ -8,7 +8,9 @@
 	angular
 		.module('toodoo', [
 			'ngRoute',
-			'ngResource'
+			'ngResource',
+
+			'toodoo.modules.Todo.services'
 		])
 		.config(config);
 
