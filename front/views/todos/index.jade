@@ -4,14 +4,30 @@ div.col-md-8.col-md-offset-2
 	div(ng-if="loading")
 		h4 Loading, please wait...
 
-	table.table.table-bordered.table-striped(ng-if="!loading")
+	div(ng-if="!loading && !todos.length")
+		h3 No todos to be displayed
+		a.btn.btn-success(href="todos/create") Create a todo
+
+	table.table.table-bordered.table-striped(ng-if="!loading && todos")
 		thead
 			th Description
 			th Created At
 			th Done?
+			th Delete
 		tbody
 			tr(ng-repeat="todo in todos")
-				td {{todo.description}}
-				td {{todo.createdAt}}
 				td 
-					input(type="checkbox" ng-checked="todo.done")
+					a(href="todos/{{todo._id}}", ng-class="{'text-muted': todo.done}")
+						|{{todo.description}}
+
+				td(ng-class="{'text-muted': todo.done}")
+					|{{todo.createdAt}}
+
+				td 
+					input(
+						type="checkbox",
+						ng-checked="todo.done",
+						ng-click="markDone(todo)")
+				
+				td
+					button.btn.btn-xs.btn-danger(ng-click="deleteTodo(todo)") Delete

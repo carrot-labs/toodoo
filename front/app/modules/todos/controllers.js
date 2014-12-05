@@ -18,6 +18,9 @@
 	function TodoListController($scope, $log, todos) {
 		var Todo = todos;
 
+		$scope.markDone   = markDone;
+		$scope.deleteTodo = deleteTodo;
+
 		activate();
 
 		function activate() {
@@ -27,12 +30,24 @@
 				.success(function(data, status) {
 					$scope.todos = data;
 					$scope.loading = false;
-					$log.info(data);
 				})
 				.error(function(data, status) {
 					$log.warn("Error:", data);
 					$scope.loading = false;
 				});
+		}
+
+		function markDone(todo) {
+			todo.done = !todo.done;
+			Todo.update(todo);
+		}
+
+		function deleteTodo(todo) {
+			var todoIndex = $scope.todos.indexOf(todo);
+
+			$scope.todos.splice(todoIndex, 1);
+
+			Todo.remove(todo);
 		}
 
 	}

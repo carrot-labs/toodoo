@@ -56,7 +56,7 @@
 		}
 
 		function remove(data) {
-			return $http.delete(urlBase + '/_id/' + data.id, data);
+			return $http.delete(urlBase + '/_id/' + data._id, data);
 		}
 	}
 
