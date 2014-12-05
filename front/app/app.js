@@ -35,6 +35,11 @@
 				controller: 'TodoListController'
 			})
 
+			.when('/todos/create', {
+				templateUrl: 'views/todos/create.html',
+				controller: 'TodoCreateController'
+			})
+
 			.when('/todos/:id', {
 				templateUrl: 'views/todos/show.html',
 				controller: 'TodoShowController'

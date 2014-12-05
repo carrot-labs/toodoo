@@ -1,0 +1,27 @@
+div.col-md-8.col-md-offset-2
+
+	div.alert.alert-success(ng-if="successMessage") 
+		|Todo create successfully!
+		a(href="todos/{{createdTodoLink}}") Click here to see it
+
+	h1.page-header Create a new Todo
+
+	form
+		div.form-group
+			label(for="description") Description:
+			input.form-control(
+				type="text", 
+				name="description"
+				placeholder="Description",
+				autocomplete="off",
+				ng-model="newTodo.description")
+
+		div.form-group
+			label(for="done") Done?
+			input(
+				type="checkbox",
+				name="done",
+				ng-model="newTodo.done")
+
+		div.form-group
+			button.btn.btn-success(ng-click="saveTodo(newTodo)") Save
