@@ -1,13 +1,15 @@
 /**
  * Require the needed modules
  */
-var express        = require('express');
 var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
 var errorHandler   = require('errorhandler');
-var lodash         = require('lodash');
-var morgan         = require('morgan');
+var express        = require('express');
+var expressJwt     = require('express-jwt');
 var http           = require('http');
+var jwt            = require('jsonwebtoken');
+var lodash         = require('lodash');
+var methodOverride = require('method-override');
+var morgan         = require('morgan');
 var path           = require('path');
 
 // Instantiate the express app
