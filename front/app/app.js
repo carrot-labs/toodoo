@@ -30,6 +30,10 @@
 		 * Create the routes
 		 */
 		$routeProvider
+			.when('/login', {
+				templateUrl: 'views/auth/login.html'
+			})
+
 			.when('/todos', {
 				templateUrl: 'views/todos/index.html',
 				controller: 'TodoListController'
@@ -51,7 +55,7 @@
 			})
 
 			.otherwise({
-				redirectTo: '/todos'
+				redirectTo: '/login'
 			});
 
 
