@@ -27,22 +27,27 @@
 			password: 'foobar'
 		};
 		
-		$scope.login = login;
+		$scope.login       = login;
+		$scope.logout      = logout;
+		$scope.verifyLogin = verifyLogin;
 
 
-		/**
-		 * Login
-		 * 
-		 * Authenticate the user
-		 */
 		function login() {
 			Auth.login($scope.user)
 				.success(function(data, status) {
-					$log.info('status:', status, 'data:', data);
+					Auth.storeToken(data.token);
 				})
 				.error(function(data, status) {
-					$log.info('status:', status, 'data:', data);
+					Auth.deleteToken();
 				});
+		}
+
+		function logout() {
+			Auth.deleteToken();
+		}
+
+		function verifyLogin() {
+			alert(Auth.isLoggedIn());
 		}
 	}
 

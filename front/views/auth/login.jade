@@ -1,4 +1,11 @@
-div.col-md-4.col-md-offset-4
+div.col-md-2
+	div.btn.btn-danger(ng-click="logout()")
+		|Sign Out
+
+	div.btn.btn-default(ng-click="verifyLogin()")
+		|Verify Login
+
+div.col-md-4.col-md-offset-2
 	h1.page-header.text-center Sign In
 
 	form(ng-submit="login()")

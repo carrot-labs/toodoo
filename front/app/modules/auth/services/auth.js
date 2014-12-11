@@ -13,19 +13,36 @@
 	/**
 	 * Inject the dependencies
 	 */
-	auth.$inject = ['$http'];
+	auth.$inject = ['$window', '$http', '$log'];
 
 
 	/**
 	 * Create the service
 	 */
-	function auth($http) {
+	function auth($window, $http, $log) {
 		var _urlBase = '/auth';
 
-		this.login = login;
+		this.deleteToken = deleteToken;
+		this.isLoggedIn  = isLoggedIn;
+		this.login       = login;
+		this.storeToken  = storeToken;
+
+		function deleteToken() {
+			if($window.sessionStorage.token) {
+				delete $window.sessionStorage.token;
+			}
+		}
+
+		function isLoggedIn() {
+			return (typeof $window.sessionStorage.token === 'undefined') ? false : true;
+		}
 
 		function login(credentials) {
 			return $http.post(_urlBase + '/login', credentials);
+		}
+
+		function storeToken(token) {
+			$window.sessionStorage.token = token;
 		}
 	}
 
