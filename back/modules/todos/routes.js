@@ -1,8 +1,9 @@
 /**
  * Require the needed modules
  */
-var express = require('express');
-
+var express    = require('express');
+var expressJwt = require('express-jwt');
+var secret     = require('../../config/secret.js');
 
 /**
  * Create the express router
@@ -29,6 +30,9 @@ var cb = function(err, data, res) {
 /**
  * Create the GET routes
  */
+
+router.use('/', expressJwt({secret: secret}));
+
 
 router.get('/', function(req, res) {
 	_todo.retrieve(req, res, cb);
