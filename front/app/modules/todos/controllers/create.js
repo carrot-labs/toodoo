@@ -17,7 +17,7 @@
 
 
 	/**
-	 * 
+	 * Create the controller
 	 */
 	function TodoCreateController($scope, $log, todos) {
 		var Todo = todos;

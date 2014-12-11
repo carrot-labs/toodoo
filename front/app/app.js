@@ -12,6 +12,8 @@
 
 			'toodoo.modules.Todo.services',
 			'toodoo.modules.Todo.controllers',
+			'toodoo.modules.Auth.services',
+			'toodoo.modules.Auth.controllers'
 		])
 		.config(config);
 
@@ -31,7 +33,8 @@
 		 */
 		$routeProvider
 			.when('/login', {
-				templateUrl: 'views/auth/login.html'
+				templateUrl: 'views/auth/login.html',
+				controller: 'AuthLoginController'
 			})
 
 			.when('/todos', {
