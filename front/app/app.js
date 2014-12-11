@@ -21,13 +21,19 @@
 	/**
 	 * Dependency injection on the config function
 	 */
-	config.$inject = ['$routeProvider', '$locationProvider'];
+	config.$inject = ['$httpProvider', '$routeProvider', '$locationProvider'];
 
 
 	/**
 	 * The main angular module configuration
 	 */
-	function config($routeProvider, $locationProvider) {
+	function config($httpProvider, $routeProvider, $locationProvider) {
+		/**
+		 * Create a http interceptor
+		 */
+		 $httpProvider.interceptors.push('authInterceptor');
+
+
 		/**
 		 * Create the routes
 		 */

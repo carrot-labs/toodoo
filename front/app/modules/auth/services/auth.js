@@ -3,7 +3,7 @@
 	'use strict';
 
 	/**
-	 * Get the module
+	 * Get the services module
 	 */
 	angular
 		.module('toodoo.modules.Auth.services')
@@ -34,7 +34,11 @@
 		}
 
 		function isLoggedIn() {
-			return (typeof $window.sessionStorage.token === 'undefined') ? false : true;
+			if($window.sessionStorage.token) {
+				return true;
+			}
+
+			return false;
 		}
 
 		function login(credentials) {
