@@ -23,7 +23,7 @@
 		/**
 		 * The base url for the http requests
 		 */
-		var urlBase = 'api/todos';
+		var _urlBase = 'api/todos';
 		
 
 		/**
@@ -40,23 +40,23 @@
 		 * Create the actions functions for the service
 		 */
 		function find() {
-			return $http.get(urlBase);
+			return $http.get(_urlBase);
 		}
 
 		function findOne(id) {
-			return $http.get(urlBase + '/_id/' + id);
+			return $http.get(_urlBase + '/_id/' + id);
 		}
 
 		function create(data) {
-			return $http.post(urlBase, data);
+			return $http.post(_urlBase, data);
 		}
 
 		function update(data) {
-			return $http.put(urlBase + '/_id/' + data._id, data);
+			return $http.put(_urlBase + '/_id/' + data._id, data);
 		}
 
 		function remove(data) {
-			return $http.delete(urlBase + '/_id/' + data._id, data);
+			return $http.delete(_urlBase + '/_id/' + data._id, data);
 		}
 	}
 
