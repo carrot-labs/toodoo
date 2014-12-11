@@ -48,10 +48,10 @@
 		}
 
 		function verifyLogin() {
-			Auth.verifyLogin().then(function(data) {
-				$log.info(data);
+			Auth.verifyLogin().then(function() {
+				$log.info("Logged In!");
 			}, function(data) {
-				$log.info(data);
+				$log.error("Not Logged In!");
 			});
 		}
 	}

@@ -45,23 +45,25 @@
 
 		function verifyLogin() {
 			var deferred  = $q.defer();
-			
-			if($window.sessionStorage.token) {
-				var userToken = { token: $window.sessionStorage.token };
+			var userToken = { token: $window.sessionStorage.token };
 
-				$http.post(_urlBase + '/loggedin', userToken)
-					.success(function(data, status) {
-						deferred.resolve(data, status);
-					})
-					.error(function(data, status) {
-						deferred.reject(data)
-					});
-			} else {
-				deferred.reject(401);
+			if(!$window.sessionStorage.token) {
+				deferred.reject('Not logged in');
+
+				return deferred.promise;
 			}
+			
+
+			$http.post(_urlBase + '/loggedin', userToken)
+				.success(function(data) {
+					deferred.resolve(data);
+				})
+				.error(function(data, status) {
+					deferred.reject(data);
+				});
 
 
-			return deferred.promise
+			return deferred.promise;
 		}
 
 		function login(credentials) {
