@@ -54,12 +54,13 @@ if(env === 'development') {
 /**
  * Set up the routes
  */
-var usersAPI = require('./modules/users/routes');
-var todosAPI = require('./modules/todos/routes');
+var authRoutes = require('./modules/auth/routes');
+var userRoutes = require('./modules/users/routes');
+var todoRoutes = require('./modules/todos/routes');
 
-app.use('/api/users', usersAPI);
-app.use('/api/todos', todosAPI);
-
+app.use('/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/todos', todoRoutes);
 
 app.all('*', function(req, res) {
   res.sendFile(publicFolder + '/index.html');
