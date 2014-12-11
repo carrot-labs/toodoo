@@ -29,6 +29,7 @@
 		this.storeToken  = storeToken;
 		this.verifyLogin = verifyLogin;
 
+
 		function deleteToken() {
 			if($window.sessionStorage.token) {
 				delete $window.sessionStorage.token;
