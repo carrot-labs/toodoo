@@ -13,13 +13,15 @@
 	/**
 	 * Inject the dependencies
 	 */
-	AuthLoginController.$inject = ['$scope', '$log'];
+	AuthLoginController.$inject = ['$scope', '$log', 'auth'];
 
 
 	/**
 	 * Create the controller
 	 */
-	function AuthLoginController($scope, $log) {
+	function AuthLoginController($scope, $log, auth) {
+		var Auth = auth;
+
 		$scope.user = {
 			username: 'johndoe',
 			password: 'foobar'
@@ -34,7 +36,13 @@
 		 * Authenticate the user
 		 */
 		function login() {
-			alert(12);
+			Auth.login($scope.user)
+				.success(function(data, status) {
+					$log.info('status:', status, 'data:', data);
+				})
+				.error(function(data, status) {
+					$log.info('status:', status, 'data:', data);
+				});
 		}
 	}
 
