@@ -13,14 +13,15 @@
 	/**
 	 * Inject the dependencies
 	 */
-	AuthLoginController.$inject = ['$scope', '$log', 'auth'];
+	AuthLoginController.$inject = ['$scope', '$log', 'auth', 'token'];
 
 
 	/**
 	 * Create the controller
 	 */
-	function AuthLoginController($scope, $log, auth) {
-		var Auth = auth;
+	function AuthLoginController($scope, $log, auth, token) {
+		var Auth  = auth;
+		var Token = token;
 
 		$scope.user = {
 			username: 'johndoe',
@@ -47,7 +48,11 @@
 		}
 
 		function verifyLogin() {
-			alert(Auth.isLoggedIn());
+			Auth.verifyLogin().then(function(data) {
+				$log.info(data);
+			}, function(data) {
+				$log.info(data);
+			});
 		}
 	}
 

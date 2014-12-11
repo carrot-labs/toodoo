@@ -31,6 +31,20 @@ var cb = function(err, data, res) {
  * Create the GET routes
  */
 
+router.post('/loggedin', function(req, res) {
+	var token = req.body.token;
+
+	/**
+	 * Verify if the token is valid
+	 */
+	jwt.verify(token, 'secret', function(err, decoded) {
+		if(err) res.send(401, 'Invalid token');
+
+		res.send(200);
+	});
+});
+
+
 router.post('/login', function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
@@ -50,6 +64,7 @@ router.post('/login', function(req, res) {
 	 * Get the user information
 	 */
 	var profile = {
+		_id: '98390u129uhj1y8312y',
 		name: 'John Doe',
 		age: 34,
 		job: 'Web developer',

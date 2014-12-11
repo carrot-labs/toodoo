@@ -13,19 +13,21 @@
 	/**
 	 * Inject the dependencies
 	 */
-	auth.$inject = ['$window', '$http', '$log'];
+	auth.$inject = ['$window', '$http', '$q', '$log', 'token'];
 
 
 	/**
 	 * Create the service
 	 */
-	function auth($window, $http, $log) {
+	function auth($window, $http, $q, $log, token) {
 		var _urlBase = '/auth';
+		var Token = token;
 
 		this.deleteToken = deleteToken;
-		this.isLoggedIn  = isLoggedIn;
+		this.getToken    = getToken;
 		this.login       = login;
 		this.storeToken  = storeToken;
+		this.verifyLogin = verifyLogin;
 
 		function deleteToken() {
 			if($window.sessionStorage.token) {
@@ -33,12 +35,33 @@
 			}
 		}
 
-		function isLoggedIn() {
+		function getToken() {
 			if($window.sessionStorage.token) {
-				return true;
+				return $window.sessionStorage.token;
 			}
 
-			return false;
+			return undefined;
+		}
+
+		function verifyLogin() {
+			var deferred  = $q.defer();
+			
+			if($window.sessionStorage.token) {
+				var userToken = { token: $window.sessionStorage.token };
+
+				$http.post(_urlBase + '/loggedin', userToken)
+					.success(function(data, status) {
+						deferred.resolve(data, status);
+					})
+					.error(function(data, status) {
+						deferred.reject(data)
+					});
+			} else {
+				deferred.reject(401);
+			}
+
+
+			return deferred.promise
 		}
 
 		function login(credentials) {
