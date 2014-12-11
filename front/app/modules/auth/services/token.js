@@ -20,12 +20,12 @@
 	 * Create the service
 	 */
 	function token($log) {
-		this.decodeToken            = decodeToken;
-		this.getTokenExpirationDate = getTokenExpirationDate;
-		this.isTokenExpired         = isTokenExpired;
-		this.urlBase64Decode        = urlBase64Decode;
+		this.decode            = decode;
+		this.getExpirationDate = getExpirationDate;
+		this.isExpired         = isExpired;
+		this.urlBase64Decode   = urlBase64Decode;
 
-    function decodeToken(token) {
+    function decode(token) {
       var parts = token.split('.');
 
       if (parts.length !== 3) {
@@ -40,9 +40,9 @@
       return JSON.parse(decoded);
     }
 
-    function getTokenExpirationDate(token) {
+    function getExpirationDate(token) {
       var decoded;
-      decoded = this.decodeToken(token);
+      decoded = this.decode(token);
 
       if(!decoded.exp) {
         return null;
@@ -54,8 +54,8 @@
       return d;
     };
 
-    function isTokenExpired(token) {
-      var d = this.getTokenExpirationDate(token);
+    function isExpired(token) {
+      var d = this.getExpirationDate(token);
 
       if (!d) {
         return false;
